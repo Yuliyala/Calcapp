@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol MainStackViewProtocol: AnyObject {
+    func tapNumberButton(tag: Int)
+    func tapActionButton(tag: Int)
+}
+
 class MainStackView: UIStackView {
     
     private var stackViews = [UIStackView]()
     
+    weak var delegate: MainStackViewProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,18 +43,18 @@ class MainStackView: UIStackView {
         button.backgroundColor =  color
         button.tintColor = .white
         button.titleLabel?.font = .boldSystemFont(ofSize: 22)
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 20
         button.addTarget(self, action: #selector(keyboardButtonTapped), for: .touchUpInside)
         return button
     }
     
     @objc private func keyboardButtonTapped(sender: UIButton ) {
-        print(sender.tag)
+        sender.tag < 10 ? delegate?.tapNumberButton(tag: sender.tag) : delegate?.tapActionButton(tag: sender.tag)
     }
     
     private func setupMainStackView() {
         let button0 = createButton(title: "0", tag: 0, color: .gray)
-        let buttonDot = createButton(title: ".", tag: 10, color: .gray)
+        let buttonDot = createButton(title: ",", tag: 10, color: .gray)
         let buttonEqual = createButton(title: "=", tag: 11, color: .orange)
         let firstStackView = UIStackView(subviews: [button0, buttonDot, buttonEqual])
         button0.widthAnchor.constraint(equalTo: firstStackView.widthAnchor, multiplier: 0.5).isActive = true
