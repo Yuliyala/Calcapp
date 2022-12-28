@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     private let resultLabel: UILabel = {
         let label = UILabel()
         label.text = "0"
-        label.font = .boldSystemFont(ofSize: 60)
+        label.font = .systemFont(ofSize: 90, weight: .thin)
         label.textColor = .white
         label.textAlignment = .right
         label.adjustsFontSizeToFitWidth = true
@@ -51,19 +51,21 @@ extension MainViewController: MainStackViewProtocol {
         
         switch tag {
         case 10:
-            print("1111")
+            calculationModel.addDotValue()
+            resultLabel.text = calculationModel.getCurrentNumber()
         case 11:
             resultLabel.text = calculationModel.getResult()
         case 12:
-            calculationModel.setOperations(operation: .addition)
+            resultLabel.text =  calculationModel.setOperations(operation: .addition)
         case 13:
-            calculationModel.setOperations(operation: .subtraction)
+            resultLabel.text =  calculationModel.setOperations(operation: .subtraction)
         case 14:
-            calculationModel.setOperations(operation: .multiplication)
+            resultLabel.text = calculationModel.setOperations(operation: .multiplication)
         case 15:
-            calculationModel.setOperations(operation: .division)
+            resultLabel.text =  calculationModel.setOperations(operation: .division)
         case 16:
-            print("1111")
+            calculationModel.setPercentNumber()
+            resultLabel.text = calculationModel.getCurrentNumber()
         case 17:
             calculationModel.invertValue()
             resultLabel.text = calculationModel.getCurrentNumber()
@@ -80,10 +82,10 @@ extension MainViewController {
     
     private func setConstrains() {
         NSLayoutConstraint.activate([
-            mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide .bottomAnchor, constant: -10),
+            mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide .bottomAnchor, constant: -20),
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            mainStackView.heightAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier:  1),
+            mainStackView.heightAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 1.2) ,
             
             resultLabel.bottomAnchor.constraint(equalTo: mainStackView.topAnchor, constant: -10),
             resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
