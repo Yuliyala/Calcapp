@@ -21,6 +21,18 @@ class MainViewController: UIViewController {
         return label
     }()
     
+    private let historyLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.font = .systemFont(ofSize: 30 , weight: .thin)
+        label.textColor = .gray
+        label.textAlignment = .right
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.3
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private let mainStackView = MainStackView()
     
     private let calculationModel = CalculationModel()
@@ -37,6 +49,7 @@ class MainViewController: UIViewController {
         
         view.addSubview(mainStackView)
         view.addSubview(resultLabel)
+        view.addSubview(historyLabel)
     }
 }
 
@@ -87,7 +100,11 @@ extension MainViewController {
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             mainStackView.heightAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 1.2) ,
             
-            resultLabel.bottomAnchor.constraint(equalTo: mainStackView.topAnchor, constant: -10),
+            historyLabel.bottomAnchor.constraint(equalTo: mainStackView.topAnchor, constant: -5),
+            historyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            historyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            
+            resultLabel.bottomAnchor.constraint(equalTo: historyLabel.topAnchor, constant: -10),
             resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         ])

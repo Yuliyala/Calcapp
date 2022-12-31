@@ -28,7 +28,7 @@ class  CalculationModel {
     }
     
     public func getCurrentNumber() -> String {
-        currentNumber
+        currentNumber.stringWithPoint
     }
     
     public func setOperations(operation: Operations) -> String {
@@ -42,7 +42,7 @@ class  CalculationModel {
         }
         currentNumber = ""
         currentOperation = operation
-        return String(firstNumber)
+        return firstNumber.stringWithoutZeroFraction.stringWithPoint
     }
     
     public func getResult() -> String {
@@ -50,25 +50,27 @@ class  CalculationModel {
         guard let number = Double(currentNumber) else { return ""}
         secondNumber = number
         
-        switch currentOperation {
+        var result = 0.0
         
+        switch currentOperation {
         case .noAction:
             print("noAction")
             return ""
         case .addition:
-            return String(firstNumber + secondNumber)
+            result = firstNumber + secondNumber
         case .subtraction:
-            return String(firstNumber - secondNumber)
+            result = firstNumber - secondNumber
         case .multiplication:
-            return String(firstNumber * secondNumber)
+            result = firstNumber * secondNumber
         case .division:
 
             if secondNumber == 0 {
                 return "Error"
             } else {
-                return String(firstNumber / secondNumber)
+               result = firstNumber / secondNumber
             }
         }
+        return result.stringWithoutZeroFraction.stringWithPoint
     }
     
     public func resetValue() {

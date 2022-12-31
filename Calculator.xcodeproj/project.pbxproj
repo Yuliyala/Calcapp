@@ -16,6 +16,8 @@
 		B241B4F22959BD3A00E45D5E /* UIStackView + Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B4F12959BD3A00E45D5E /* UIStackView + Extentions.swift */; };
 		B241B4F4295B471300E45D5E /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B4F3295B471300E45D5E /* Operations.swift */; };
 		B241B4F6295B47F100E45D5E /* CalculationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B4F5295B47F100E45D5E /* CalculationModel.swift */; };
+		B241B4FB296054B500E45D5E /* Double + Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B4FA296054B500E45D5E /* Double + Extentions.swift */; };
+		B241B4FD29605F5300E45D5E /* String + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241B4FC29605F5300E45D5E /* String + Extention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		B241B4F12959BD3A00E45D5E /* UIStackView + Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extentions.swift"; sourceTree = "<group>"; };
 		B241B4F3295B471300E45D5E /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		B241B4F5295B47F100E45D5E /* CalculationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationModel.swift; sourceTree = "<group>"; };
+		B241B4FA296054B500E45D5E /* Double + Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + Extentions.swift"; sourceTree = "<group>"; };
+		B241B4FC29605F5300E45D5E /* String + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				B241B4F02959BC6600E45D5E /* UIKit */,
+				B241B4FA296054B500E45D5E /* Double + Extentions.swift */,
+				B241B4FC29605F5300E45D5E /* String + Extention.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -203,8 +209,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B21AE7822955E93C008E0D15 /* MainStackView.swift in Sources */,
+				B241B4FD29605F5300E45D5E /* String + Extention.swift in Sources */,
 				B241B4F22959BD3A00E45D5E /* UIStackView + Extentions.swift in Sources */,
 				B21AE76D2955E418008E0D15 /* MainViewController.swift in Sources */,
+				B241B4FB296054B500E45D5E /* Double + Extentions.swift in Sources */,
 				B241B4F4295B471300E45D5E /* Operations.swift in Sources */,
 				B241B4F6295B47F100E45D5E /* CalculationModel.swift in Sources */,
 				B21AE7692955E418008E0D15 /* AppDelegate.swift in Sources */,
