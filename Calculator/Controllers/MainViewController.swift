@@ -46,7 +46,6 @@ class MainViewController: UIViewController {
     
     private func setupViews() {
         view.backgroundColor = .black
-        
         view.addSubview(mainStackView)
         view.addSubview(resultLabel)
         view.addSubview(historyLabel)
@@ -65,6 +64,7 @@ extension MainViewController: MainStackViewProtocol {
         
         switch tag {
         case 10:
+            historyLabel.text = calculationModel.getCalculationHistory(tag: tag)
             calculationModel.addDotValue()
             resultLabel.text = calculationModel.getCurrentNumber()
         case 11:
@@ -84,12 +84,15 @@ extension MainViewController: MainStackViewProtocol {
         case 16:
             calculationModel.setPercentNumber()
             resultLabel.text = calculationModel.getCurrentNumber()
+            historyLabel.text = calculationModel.getCalculationHistory(tag: tag)
         case 17:
+            historyLabel.text = calculationModel.getCalculationHistory(tag: tag)
             calculationModel.invertValue()
             resultLabel.text = calculationModel.getCurrentNumber()
         case 18:
             calculationModel.resetValue()
             resultLabel.text = "0"
+            historyLabel.text = ""
         default:
             print("error tag")
         }
@@ -113,8 +116,6 @@ extension MainViewController {
             resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         ])
-        
-        
     }
 }
 

@@ -61,7 +61,6 @@ class MainStackView: UIStackView {
         buttonDot.widthAnchor.constraint(equalTo: buttonEqual.widthAnchor, multiplier: 1).isActive = true
         firstStackView.distribution = .fill
         
-        
         let button1 = createButton(title: "1", tag: 1, color: .darkGray)
         let button2 = createButton(title: "2", tag: 2, color: .darkGray)
         let button3 = createButton(title: "3", tag: 3, color: .darkGray)
@@ -88,5 +87,5 @@ class MainStackView: UIStackView {
         
         stackViews = [fifthStackView, fourthStackView,  thirdStackView, secondStackView, firstStackView]
     }
-
+    
 }
