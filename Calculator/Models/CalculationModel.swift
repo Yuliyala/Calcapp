@@ -14,6 +14,20 @@ class  CalculationModel {
     private var secondNumber = 0.0
     private var currentNumber = ""
     private var currentOperation = Operations.noAction
+    private var currentHistory = ""
+    
+    public func getCalculationHistory(tag: Int) -> String {
+        switch tag {
+        case 0...9:
+            currentHistory += "\(tag)"
+        case 12...15:
+            currentHistory += currentOperation.rawValue
+            
+        default:
+            print("Error history tag")
+        }
+        return currentHistory
+    }
     
     public func setNumber(number: Int) {
         
@@ -54,8 +68,7 @@ class  CalculationModel {
         
         switch currentOperation {
         case .noAction:
-            print("noAction")
-            return ""
+            return currentNumber
         case .addition:
             result = firstNumber + secondNumber
         case .subtraction:
@@ -79,6 +92,7 @@ class  CalculationModel {
         secondNumber = 0.0
         currentNumber = ""
         currentOperation = .noAction
+        currentHistory = ""
     }
     
     public func invertValue() {

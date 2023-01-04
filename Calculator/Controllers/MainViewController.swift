@@ -58,6 +58,7 @@ extension MainViewController: MainStackViewProtocol {
     func tapNumberButton(tag: Int) {
         calculationModel.setNumber(number: tag)
         resultLabel.text = calculationModel.getCurrentNumber()
+        historyLabel.text = calculationModel.getCalculationHistory(tag: tag)
     }
     
     func tapActionButton(tag: Int) {
@@ -70,12 +71,16 @@ extension MainViewController: MainStackViewProtocol {
             resultLabel.text = calculationModel.getResult()
         case 12:
             resultLabel.text =  calculationModel.setOperations(operation: .addition)
+            historyLabel.text = calculationModel.getCalculationHistory(tag: tag)
         case 13:
             resultLabel.text =  calculationModel.setOperations(operation: .subtraction)
+            historyLabel.text = calculationModel.getCalculationHistory(tag: tag)
         case 14:
             resultLabel.text = calculationModel.setOperations(operation: .multiplication)
+            historyLabel.text = calculationModel.getCalculationHistory(tag: tag)
         case 15:
             resultLabel.text =  calculationModel.setOperations(operation: .division)
+            historyLabel.text = calculationModel.getCalculationHistory(tag: tag)
         case 16:
             calculationModel.setPercentNumber()
             resultLabel.text = calculationModel.getCurrentNumber()
